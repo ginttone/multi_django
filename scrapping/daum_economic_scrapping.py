@@ -3,24 +3,22 @@ import requests
 
 res = requests.get('http://media.daum.net/economic/')
 
-import splite3
-
-
+import sqlite3
 if res.status_code == 200:
     soup = BeautifulSoup(res.content, 'html.parser')
-    links = soup.find_all('a', class_='link_txt')
-    connect = sqlite3.connect('./db.sqlite3')
+    links = soup.select('a.link_txt')
+    # with sqlite3.connect('./db.sqlite3') as conn
+    connect = sqlite3.connect('../db.sqlite3')
     cursor = connect.cursor()
 
     for link in links:
         title = str.strip(link.get_text())
         href = str.strip(link.get('href'))
-        print(title, ' : ', href)
         try:
             cursor.execute(
-                "insert into polls_economics(create_date, href, title) values(datetime('now'), ?, ?)",
-                           (href, title))
+                "insert into polls_economics(create_date, href, title) values(datetime('now'), ?, ?)", (href,title))
+            print(title, ' : ', href)
         except:
             pass
-        print(title, ' : ', href)
+
     connect.commit()
