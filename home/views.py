@@ -16,7 +16,11 @@ def index(request):
 def index01(request):
     result = {'first':'juhee','second':'kim'}
     return render(request,'index.html',context=result)
+#
+# def index02(request):
+#     result = {'first':request.GET['first'],'second':request.GET['second']}
+#     return render(request,'index.html',context=result)
 
 def index02(request):
-    result = {'first':request.GET['first'],'second':request.GET['second']}
-    return render(request,'index.html',context=result)
+
+    return render(request,'index_copy.html')
