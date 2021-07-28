@@ -1,11 +1,24 @@
 from django.shortcuts import render
 
 # Create your views here.
-import folium #위도와 경도를 잡아와야해
-
+import folium
 def home(request):
-    mf = folium.Map([35.3369, 127.7306], zoom_start= 10)#lat_long위도경도 지정 및 얼만큼의 사이즈인지 알려줌
-    mf = mf._repr_html_() #한글로 바꿔주는 방법
-    first = 'hwasa'
-    result = {'mapfolium':mf, 'f01':first} #변수로 딕셔너리형태로 해서 넘겨주려고 준비
-    return render(request, template_name='maps/home.html',context=result)
+    mf = folium.Map([35.3369, 127.7306], zoom_start=10)
+    mf = mf._repr_html_()
+    first = 'sanghun'
+    result = {'mapfolium': mf, 'f01':first}
+
+    return render(request, template_name='maps/home.html', context=result)
+
+def plotly(request):
+
+    xArray = [50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150];
+    yArray = [7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15];
+    result = {'x_array':xArray,'y_array':yArray}
+
+    xArray02 = [50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150];
+    yArray02 = [17, 18, 18, 19, 19, 19, 10, 11, 14, 14, 15];
+    result['x_array02']=xArray02
+    result['y_array02']=yArray02
+    return render(request,template_name='maps/plotly.html', context=result)
+

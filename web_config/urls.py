@@ -16,16 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from home import views
-from maps import views as mapsviews #views라는 이름이 중복될까봐 이름을 정해줌
+from maps import views as mapsviews
 from board import views as boardviews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home',views.index),
-    path('',views.index),
-    path('index01',views.index01),
-    path('index02',views.index02),
-    path('maps/home',mapsviews.home),
-    path('board/list',boardviews.list),
+    path('home', views.index),
+    path('', views.index),
+    path('index01', views.index01),
+    path('index02', views.index02),
+    path('maps/home', mapsviews.home),
+    path('maps/plotly', mapsviews.plotly),
+    path('board/list', boardviews.list),
 
 ]
