@@ -9,4 +9,5 @@
 [![SC2 Video](https://img.youtube.com/vi/CkaXr9SAMak/0.jpg)](https://www.youtube.com/watch?v=CkaXr9SAMak)
 
 
+`코드 테스트 관련 참조 사이트 : https://m.blog.naver.com/khu94/221962159002   / - https://devpouch.tistory.com/107`
 
