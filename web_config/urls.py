@@ -28,5 +28,6 @@ urlpatterns = [
     path('maps/home', mapsviews.home),
     path('maps/plotly', mapsviews.plotly),
     path('board/list', boardviews.list),
+    path('board/list_paginator', boardviews.list_paginator),
 
 ]
